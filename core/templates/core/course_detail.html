@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h1>{{ course.name }}</h1>
+<p>Teacher: {{ course.teacher }}</p>
+<p>{{ course.description }}</p>
+<h2>Students</h2>
+<ul>
+    {% for student in students %}
+    <li>{{ student }}</li>
+    {% empty %}<li>No students enrolled.</li>{% endfor %}
+</ul>
+{% endblock %}

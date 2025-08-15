@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h1>Courses</h1>
+<ul>
+    {% for course in courses %}
+    <li><a href="{% url 'course_detail' course.id %}">{{ course.name }}</a> ({{ course.teacher }})</li>
+    {% empty %}<li>No courses.</li>{% endfor %}
+</ul>
+{% endblock %}

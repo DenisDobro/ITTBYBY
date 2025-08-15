@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h1>Courses</h1>
+<ul>
+    {% for course in courses %}
+    <li><a href="{% url 'course_detail' course.id %}">{{ course.name }}</a> - {{ course.student_count }} students</li>
+    {% endfor %}
+</ul>
+
+<h2>Courses without students</h2>
+<ul>
+    {% for c in courses_without_students %}
+    <li>{{ c.name }}</li>
+    {% empty %}<li>All courses have students.</li>{% endfor %}
+</ul>
+
+<h2>Stats</h2>
+<p>Total students: {{ stats.total_students }}</p>
+<p>Average courses per student: {{ stats.avg_courses_per_student|default:'0' }}</p>
+{% endblock %}

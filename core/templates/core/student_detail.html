@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h1>{{ student }}</h1>
+<p>Email: {{ student.email }}</p>
+<p>Group: {{ student.group }}</p>
+<p>Average grade: {{ avg_grade|default:"N/A" }}</p>
+<h2>Courses</h2>
+<ul>
+    {% for enrollment in enrollments %}
+    <li>{{ enrollment.course.name }}{% if enrollment.grade %} - {{ enrollment.grade }}{% endif %}</li>
+    {% empty %}<li>No courses.</li>{% endfor %}
+</ul>
+{% endblock %}
