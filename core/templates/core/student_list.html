@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h1>Students{% if year %} from {{ year }}{% endif %}</h1>
+<ul>
+    {% for student in students %}
+    <li><a href="{% url 'student_detail' student.id %}">{{ student }}</a> ({{ student.group }})</li>
+    {% empty %}<li>No students.</li>{% endfor %}
+</ul>
+{% endblock %}
